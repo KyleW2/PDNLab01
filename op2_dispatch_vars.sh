@@ -17,5 +17,5 @@ OP2_SUBMISSION_VAR03_FILE="baseline_op_02.c" # <-- CHANGE ME!
 # You can even change the compiler flags if you want #
 ######################################################
 # CFLAGS="-std=c99 -O2"
-CFLAGS="-std=c99 -O2 -mavx2 -mfma"
+CFLAGS="-pthread -std=c99 -O2 -mavx2 -mfma"
 
