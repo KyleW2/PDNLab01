@@ -20,7 +20,7 @@ typedef struct
 
 void *VROOM(void *deez_args)
 {
-  args *args = deez_args; // Isn't C neat?
+  args *args = deez_args;
 
   // Transpose the row
   for (int j = 0; j < args->n; ++j)
@@ -48,7 +48,7 @@ void KA_CHOW(int m, int n, float *src, int rs_s, int cs_s, float *dst, int rs_d,
   for (int i = 0; i < m; ++i)
   {
     args.i = i;
-    pthread_create(&tids[i], NULL, VROOM, (void *)args);
+    pthread_create(&tids[i], NULL, VROOM, &args);
   }
 
   // Join threads
