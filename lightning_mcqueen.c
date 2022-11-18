@@ -17,14 +17,14 @@ typedef struct
   int cs_d;
 } args;
 
-void VROOM(void *args)
+void VROOM(void *deez_args)
 {
-  args *args = args; // Isn't C neat?
+  args *args = deez_args; // Isn't C neat?
 
   // Transpose the row
-  for (int j = 0; j < args.n; ++j)
+  for (int j = 0; j < args->n; ++j)
   {
-    args.dst[j * args.rs_d + args.i * args.cs_d] = src[args.i * args.rs_s + j * args.cs_s];
+    args->dst[j * args->rs_d + args->i * args->cs_d] = src[args->i * args->rs_s + j * args->cs_s];
   }
 }
 
