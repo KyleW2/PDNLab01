@@ -19,6 +19,8 @@ typedef struct
 
 void VROOM(void *args)
 {
+  args *args = (args)args; // Isn't C neat?
+
   // Transpose the row
   for (int j = 0; j < args->n; ++j)
   {
