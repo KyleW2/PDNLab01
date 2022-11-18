@@ -1,4 +1,5 @@
 #include <pthread.h>
+#include <stdlib.h>
 
 #ifndef KA_CHOW
 #define KA_CHOW baseline_transpose
@@ -24,7 +25,7 @@ void VROOM(void *deez_args)
   // Transpose the row
   for (int j = 0; j < args->n; ++j)
   {
-    args->dst[j * args->rs_d + args->i * args->cs_d] = src[args->i * args->rs_s + j * args->cs_s];
+    args->dst[j * args->rs_d + args->i * args->cs_d] = args->src[args->i * args->rs_s + j * args->cs_s];
   }
 }
 
@@ -47,7 +48,7 @@ void KA_CHOW(int m, int n, float *src, int rs_s, int cs_s, float *dst, int rs_d,
   for (int i = 0; i < m; ++i)
   {
     args.i = i;
-    pthread_create(&tid[i], NULL, VROOM, (void *)args);
+    pthread_create(&tids[i], NULL, VROOM, (void *)args);
   }
 
   // Join threads
