@@ -18,7 +18,7 @@ typedef struct
   int cs_d;
 } args;
 
-void VROOM(void *deez_args)
+void *VROOM(void *deez_args)
 {
   args *args = deez_args; // Isn't C neat?
 
